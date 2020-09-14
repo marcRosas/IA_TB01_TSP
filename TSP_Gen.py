@@ -129,7 +129,6 @@ def breed(padre1, padre2):
 
 
 #Función para ejecutar el cruce sobre el grupo de acoplamiento completo
-
 def breedPopulation(matingpool, eliteSize):
     hijo = []
     length = len(matingpool) - eliteSize
@@ -169,10 +168,10 @@ def mutatePopulation(poblacion, RatioMutac):
 
 
 #Se unen todos los pasos para la prox generación
-def ProxGen(currentGen, eliteSize, RatioMutac):
-    popRanked = RutasTop(currentGen)
+def ProxGen(GenActual, eliteSize, RatioMutac):
+    popRanked = RutasTop(GenActual)
     selectionResults = seleccion(popRanked, eliteSize)
-    matingpool = matingPool(currentGen, selectionResults)
+    matingpool = matingPool(GenActual, selectionResults)
     hijo = breedPopulation(matingpool, eliteSize)
     ProxGen = mutatePopulation(hijo, RatioMutac)
     return ProxGen
